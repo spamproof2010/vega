@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -22,8 +23,14 @@ namespace vega
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<VegaDbContext>(options => options.UseSqlServer("..."));
-            
+            services.AddAutoMapper();
+            services.AddDbContext<VegaDbContext>(options =>
+                options.UseSqlServer(Configuration
+                    ["ConnectionStrings:Default"]));
+
+            // Try GetConnection Sting method the failed before
+            // Configuration.GetConnectionString("Default)
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // In production, the Angular files will be served from this directory
