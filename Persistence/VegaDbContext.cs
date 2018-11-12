@@ -13,6 +13,7 @@ namespace vega.Persistence
         {
         }
 
+        public DbSet<Feature> Features { get; set; }
         public DbSet<Make> Makes { get; set; }
         //Note: we don't need to add a model class b/c EF sees the realtionship and will discover 'model'
     }
