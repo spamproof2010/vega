@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
+import { FeatureService } from './Services/feature.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
     ])
   ],
   providers: [
-    MakeService
+    MakeService,
+    FeatureService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,3 +1,4 @@
+import { FeatureService } from './../Services/feature.service';
 import { MakeService } from './../Services/make.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,12 +11,18 @@ export class VehicleFormComponent implements OnInit {
   makes: any[];
   vehicle: any = {};
   models: any[];
+  features: any[];
 
-  constructor(private makeService: MakeService) { }
+  constructor(
+    private makeService: MakeService,
+    private featureService: FeatureService) { }
   
   ngOnInit() {
     this.makeService.getMakes().subscribe(makes =>
-      this.makes = makes)
+      this.makes = makes);
+
+    this.featureService.getFeatures().subscribe(features =>
+      this.features = features)
   }
   onMakeChange(){
     var selectedMake = this.makes.find(m=> m.id == this.vehicle.make)
