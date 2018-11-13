@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { MakeService } from './Services/make.service';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -12,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
-import { FeatureService } from './Services/feature.service';
+import { VehicleService } from './Services/vehicle.service';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { FeatureService } from './Services/feature.service';
     ])
   ],
   providers: [
-    MakeService,
-    FeatureService
+    VehicleService
   ],
   bootstrap: [AppComponent]
 })
